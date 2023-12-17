@@ -1,15 +1,11 @@
 # Hunting-Lists
 A repository of IoC lists to use for threat hunting queries
 
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cyb3rmik3/Hunting-Lists?style=flat-square&color=blue">
-
-<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cyb3rmik3/Hunting-Lists?style=social&color=blue">
-
-<img alt="GitHub issues" src="https://img.shields.io/github/issues/cyb3rmik3/Hunting-Lists?style=for-the-badge&color=blue">
-
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/cyb3rmik3/Hunting-Lists?style=flat&color=blue">
-
-<img alt="GitHub License" src="https://img.shields.io/github/license/cyb3rmik3/Hunting-Lists?style=slat-square&color=blue">
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cyb3rmik3/Hunting-Lists?style=for-the-badge&color=blue">
+<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cyb3rmik3/Hunting-Lists?for-the-badge&color=yellow">
+<img alt="GitHub issues" src="https://img.shields.io/github/issues/cyb3rmik3/Hunting-Lists?style=for-the-badge&color=yellow">
+<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/cyb3rmik3/Hunting-Lists?for-the-badge&color=green">
+<img alt="GitHub License" src="https://img.shields.io/github/license/cyb3rmik3/Hunting-Lists?style=for-the-badge&color=green">
 
 ## Sources documentation
 | File  | Source | Last updated | Comment |
