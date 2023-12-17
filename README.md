@@ -1,6 +1,8 @@
 # Hunting-Lists
 A repository of IoC lists to use for threat hunting queries
 
+<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cyb3rmik3/Hunting-Lists?style=flat-square&color=blue">
+
 <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/cyb3rmik3/Hunting-Lists?style=flat&color=blue">
 
 ## Sources documentation
