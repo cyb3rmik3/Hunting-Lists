@@ -2,12 +2,12 @@
 A repository of IoC lists to use for threat hunting queries
 
 <div id="badges">
-<img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cyb3rmik3/Hunting-Lists?style=flat-square&color=blue">
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/cyb3rmik3/Hunting-Lists?style=flat-square&color=blue">
   <img alt="GitHub Repo stars" src="https://img.shields.io/github/forks/cyb3rmik3/Hunting-Lists?style=flat-square&color=blue">
-<img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cyb3rmik3/Hunting-Lists?style=flat-square&color=yellow">
-<img alt="GitHub issues" src="https://img.shields.io/github/issues/cyb3rmik3/Hunting-Lists?style=flat-square&color=yellow">
-<img alt="GitHub contributors" src="https://img.shields.io/github/contributors/cyb3rmik3/Hunting-Lists?style=flat-square&color=green">
-<img alt="GitHub License" src="https://img.shields.io/github/license/cyb3rmik3/Hunting-Lists?style=flat-square&color=green">
+  <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/cyb3rmik3/Hunting-Lists?style=flat-square&color=yellow">
+  <img alt="GitHub issues" src="https://img.shields.io/github/issues/cyb3rmik3/Hunting-Lists?style=flat-square&color=yellow">
+  <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/cyb3rmik3/Hunting-Lists?style=flat-square&color=green">
+  <img alt="GitHub License" src="https://img.shields.io/github/license/cyb3rmik3/Hunting-Lists?style=flat-square&color=green">
 </div>
 
 ## Sources documentation
