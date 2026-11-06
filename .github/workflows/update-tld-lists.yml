@@ -1,4 +1,4 @@
-name: Update Netcraft TLD list
+name: Update TLD lists
 
 on:
   schedule:
@@ -17,14 +17,19 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install requests beautifulsoup4
-      - run: python scripts/update_netcraft_tlds.py netcraft-tlds.csv README.md
+      - name: Update Netcraft list
+        run: python scripts/update_netcraft_tlds.py netcraft-tlds.csv README.md
+      - name: Update Spamhaus list
+        if: always()   # still run if the Netcraft step failed
+        run: python scripts/update_spamhaus_tlds.py spamhaus-abused-tlds.csv README.md
       - name: Commit if changed
+        if: always()
         run: |
-          if [[ -n "$(git status --porcelain netcraft-tlds.csv README.md)" ]]; then
+          if [[ -n "$(git status --porcelain netcraft-tlds.csv spamhaus-abused-tlds.csv README.md)" ]]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add netcraft-tlds.csv README.md
-            git commit -m "Auto-update Netcraft TLD list and README date"
+            git add netcraft-tlds.csv spamhaus-abused-tlds.csv README.md
+            git commit -m "Auto-update TLD lists and README dates"
             git push
           else
             echo "No changes"
