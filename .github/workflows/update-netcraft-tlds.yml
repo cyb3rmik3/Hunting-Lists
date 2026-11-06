@@ -1,0 +1,31 @@
+name: Update Netcraft TLD list
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # Mondays 05:17 UTC
+  workflow_dispatch:        # manual "Run workflow" button
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests beautifulsoup4
+      - run: python scripts/update_netcraft_tlds.py netcraft-tlds.csv
+      - name: Commit if changed
+        run: |
+          if [[ -n "$(git status --porcelain netcraft-tlds.csv)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add netcraft-tlds.csv
+            git commit -m "Auto-update Netcraft TLD list"
+            git push
+          else
+            echo "No changes"
+          fi
