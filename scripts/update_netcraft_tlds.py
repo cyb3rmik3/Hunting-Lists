@@ -6,6 +6,8 @@ Keeps the existing CSV layout: TLD, Country/Name, Incidents to Sites Ratio
 Refuses to overwrite the file if the page layout looks different.
 """
 import csv
+import datetime
+import re
 import sys
 
 import requests
@@ -13,6 +15,7 @@ from bs4 import BeautifulSoup
 
 URL = "https://trends.netcraft.com/cybercrime/tlds"
 OUT = sys.argv[1] if len(sys.argv) > 1 else "netcraft-tlds.csv"
+README = sys.argv[2] if len(sys.argv) > 2 else "README.md"
 TOP_N = 20
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; Hunting-Lists-updater; +https://github.com/cyb3rmik3/Hunting-Lists)"}
 
@@ -37,6 +40,23 @@ def parse(html: str):
     raise RuntimeError("Netcraft table not found - page layout may have changed")
 
 
+def update_readme(path: str):
+    """Set the 'Last updated' date (DD/MM/YYYY, UTC) on the netcraft-tlds row."""
+    today = datetime.datetime.now(datetime.timezone.utc).strftime("%d/%m/%Y")
+    with open(path, encoding="utf-8") as f:
+        lines = f.read().split("\n")
+    hit = 0
+    for i, line in enumerate(lines):
+        if line.startswith("| [netcraft-tlds]"):
+            lines[i], n = re.subn(r"\|(\s*)\d{2}/\d{2}/\d{4}(\s*)\|", rf"|\g<1>{today}\g<2>|", line, count=1)
+            hit += n
+    if hit != 1:
+        sys.exit("README netcraft-tlds row/date not found; refusing to guess")
+    with open(path, "w", encoding="utf-8", newline="") as f:
+        f.write("\n".join(lines))
+    print(f"README last-updated set to {today}")
+
+
 def main():
     resp = requests.get(URL, headers=HEADERS, timeout=60)
     resp.raise_for_status()
@@ -48,6 +68,7 @@ def main():
         w.writerow(["TLD", "Country/Name", "Incidents to Sites Ratio"])
         w.writerows(rows)
     print(f"Wrote {len(rows)} rows to {OUT}")
+    update_readme(README)
 
 
 if __name__ == "__main__":
